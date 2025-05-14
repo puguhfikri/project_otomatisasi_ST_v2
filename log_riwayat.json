@@ -1,0 +1,85 @@
+[
+  {
+    "username": "PDSADSF",
+    "nomor_surat": "007/ST/HRD/V/2025",
+    "waktu_input": "2025-05-14 15:49:36",
+    "jumlah_karyawan": 3,
+    "data": {
+      "nama": [
+        "afafwerwr",
+        "werwer",
+        "EFAF"
+      ],
+      "jabatan": [
+        "werwer",
+        "werer",
+        "ASFDQEFD"
+      ],
+      "unit": [
+        "werwer",
+        "werwr",
+        "AEFQWFD"
+      ],
+      "lokasi": "EQFWEFWE",
+      "tanggal_mulai": "0131-03-31",
+      "tanggal_selesai": "2025-05-22",
+      "deskripsi": "dfgdfgfdgA"
+    }
+  },
+  {
+    "username": "afwsf",
+    "nomor_surat": "008/ST/HRD/V/2025",
+    "waktu_input": "2025-05-14 16:25:41",
+    "ip_address": "127.0.0.1",
+    "jumlah_karyawan": 3,
+    "data": {
+      "nama": [
+        "erwer",
+        "qwrqr",
+        "qwrqr"
+      ],
+      "jabatan": [
+        "ewrwqe",
+        "qrqr",
+        "qwrqr"
+      ],
+      "unit": [
+        "qrqrq",
+        "qwrqwr",
+        "qr"
+      ],
+      "lokasi": "qwrqr",
+      "tanggal_mulai": "0123-01-31",
+      "tanggal_selesai": "12331-01-12",
+      "deskripsi": "qrfqwrfwerfwrf"
+    }
+  },
+  {
+    "username": "adfsd",
+    "nomor_surat": "009/ST/HRD/V/2025",
+    "waktu_input": "2025-05-14 16:27:14",
+    "ip_address": "127.0.0.1",
+    "jumlah_karyawan": 3,
+    "data": {
+      "nama": [
+        "dfsaf",
+        "qewrqer",
+        "qwreqw"
+      ],
+      "jabatan": [
+        "wfw",
+        "qrq",
+        "qwr"
+      ],
+      "unit": [
+        "ferq",
+        "qwreqw",
+        "qwrq"
+      ],
+      "lokasi": "qwerqwer",
+      "tanggal_mulai": "3421-02-12",
+      "tanggal_selesai": "123123-03-12",
+      "deskripsi": "qarfwrfw"
+    }
+  }
+]

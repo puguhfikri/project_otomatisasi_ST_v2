@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Surat Tugas</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 30px;
+            background: linear-gradient(to right, #d9e7ff, #ffffff);
+            color: #333;
+        }
+
+        .container {
+            max-width: 860px;
+            background: white;
+            padding: 30px 40px;
+            border-radius: 16px;
+            margin: auto;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #2d89ef;
+        }
+
+        label {
+            font-weight: 600;
+            display: block;
+            margin-top: 15px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px 14px;
+            margin-top: 6px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            transition: all 0.2s ease;
+            font-size: 14px;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #2d89ef;
+            box-shadow: 0 0 0 3px rgba(45, 137, 239, 0.2);
+        }
+
+        button {
+            background-color: #2d89ef;
+            color: white;
+            padding: 12px 22px;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #1b61c2;
+        }
+
+        .person-row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .person-row input {
+            flex: 1;
+        }
+
+        .btn-add {
+            margin-top: 10px;
+            background-color: #34a853;
+        }
+
+        .btn-add:hover {
+            background-color: #288b40;
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0; transform: translateY(20px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+    </style>
+    <script>
+        function tambahBaris() {
+            const container = document.getElementById('person-container');
+            const div = document.createElement('div');
+            div.className = 'person-row';
+            div.innerHTML = `
+                <input name="nama" placeholder="Nama" required>
+                <input name="jabatan" placeholder="Jabatan" required>
+                <input name="unit" placeholder="Unit/Divisi" required>
+            `;
+            container.appendChild(div);
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>📄 Form Surat Tugas</h2>
+        <form method="POST">
+            <label>Username (opsional)</label>
+            <input name="username" placeholder="Nama Penginput">
+
+            <div id="person-container">
+                <div class="person-row">
+                    <input name="nama" placeholder="Nama" required>
+                    <input name="jabatan" placeholder="Jabatan" required>
+                    <input name="unit" placeholder="Unit/Divisi" required>
+                </div>
+            </div>
+            <button type="button" class="btn-add" onclick="tambahBaris()">+ Tambah Karyawan</button>
+
+            <label>Lokasi Penugasan</label>
+            <input name="lokasi" required>
+
+            <label>Tanggal Mulai</label>
+            <input type="date" name="tanggal_mulai" required>
+
+            <label>Tanggal Selesai</label>
+            <input type="date" name="tanggal_selesai" required>
+
+            <label>Deskripsi Penugasan</label>
+            <textarea name="deskripsi" rows="4" required placeholder="Contoh: Melakukan audit proses di divisi produksi..."></textarea>
+
+            <br><br>
+            <button type="submit">🚀 Generate Surat</button>
+        </form>
+    </div>
+</body>
+</html>

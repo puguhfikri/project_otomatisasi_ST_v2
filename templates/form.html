@@ -1,138 +1,175 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <title>Form Surat Tugas</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            padding: 30px;
-            background: linear-gradient(to right, #d9e7ff, #ffffff);
-            color: #333;
-        }
+  <meta charset="UTF-8" />
+  <title>Form Surat Tugas</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <style>
+    @keyframes fadeInSlide {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-        .container {
-            max-width: 860px;
-            background: white;
-            padding: 30px 40px;
-            border-radius: 16px;
-            margin: auto;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-            animation: fadeIn 0.6s ease-in-out;
-        }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #f3f4f6, #e0e7ff);
+      padding: 40px;
+    }
 
-        h2 {
-            text-align: center;
-            margin-bottom: 25px;
-            color: #2d89ef;
-        }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: #ffffff;
+      padding: 30px 40px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      animation: fadeInSlide 0.6s ease-in-out;
+    }
 
-        label {
-            font-weight: 600;
-            display: block;
-            margin-top: 15px;
-        }
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 30px;
+    }
 
-        input, textarea {
-            width: 100%;
-            padding: 10px 14px;
-            margin-top: 6px;
-            border-radius: 8px;
-            border: 1px solid #ccc;
-            transition: all 0.2s ease;
-            font-size: 14px;
-        }
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      color: #444;
+    }
 
-        input:focus, textarea:focus {
-            outline: none;
-            border-color: #2d89ef;
-            box-shadow: 0 0 0 3px rgba(45, 137, 239, 0.2);
-        }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+      box-sizing: border-box;
+      background-color: #f9fafe;
+      transition: 0.3s ease;
+    }
 
-        button {
-            background-color: #2d89ef;
-            color: white;
-            padding: 12px 22px;
-            border: none;
-            border-radius: 8px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
+    input:focus, textarea:focus {
+      border-color: #7a9df5;
+      background-color: #fff;
+      box-shadow: 0 0 0 3px rgba(122, 157, 245, 0.2);
+      outline: none;
+    }
 
-        button:hover {
-            background-color: #1b61c2;
-        }
+    .person-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+      align-items: center;
+    }
 
-        .person-row {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 10px;
-        }
+    .person-row input {
+      flex: 1;
+    }
 
-        .person-row input {
-            flex: 1;
-        }
+    .person-row.fade-in {
+      animation: fadeInSlide 0.4s ease forwards;
+    }
 
-        .btn-add {
-            margin-top: 10px;
-            background-color: #34a853;
-        }
+    .remove-btn {
+      background-color: #ff5e5e;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
 
-        .btn-add:hover {
-            background-color: #288b40;
-        }
+    .add-btn {
+      background-color: #34c38f;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
 
-        @keyframes fadeIn {
-            from {opacity: 0; transform: translateY(20px);}
-            to {opacity: 1; transform: translateY(0);}
-        }
-    </style>
-    <script>
-        function tambahBaris() {
-            const container = document.getElementById('person-container');
-            const div = document.createElement('div');
-            div.className = 'person-row';
-            div.innerHTML = `
-                <input name="nama" placeholder="Nama" required>
-                <input name="jabatan" placeholder="Jabatan" required>
-                <input name="unit" placeholder="Unit/Divisi" required>
-            `;
-            container.appendChild(div);
-        }
-    </script>
+    .submit-btn {
+      background-color: #556ee6;
+      color: white;
+      padding: 14px 24px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      display: block;
+      margin-top: 30px;
+      width: 100%;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h2>📄 Form Surat Tugas</h2>
-        <form method="POST">
-            <label>Username (opsional)</label>
-            <input name="username" placeholder="Nama Penginput">
+  <div class="container">
+    <h2>Form Surat Tugas</h2>
+    <form method="POST">
+      <label>Username (opsional)</label>
+      <input name="username" placeholder="Nama Penginput">
 
-            <div id="person-container">
-                <div class="person-row">
-                    <input name="nama" placeholder="Nama" required>
-                    <input name="jabatan" placeholder="Jabatan" required>
-                    <input name="unit" placeholder="Unit/Divisi" required>
-                </div>
-            </div>
-            <button type="button" class="btn-add" onclick="tambahBaris()">+ Tambah Karyawan</button>
+      <div id="person-container">
+        <div class="person-row">
+          <input name="nama" placeholder="Nama">
+          <input name="jabatan" placeholder="Jabatan">
+          <input name="unit" placeholder="Unit/Divisi">
+        </div>
+      </div>
 
-            <label>Lokasi Penugasan</label>
-            <input name="lokasi" required>
+      <div style="margin-bottom: 20px;">
+        <button type="button" class="add-btn" onclick="tambahBaris()">+ Tambah Karyawan</button>
+      </div>
 
-            <label>Tanggal Mulai</label>
-            <input type="date" name="tanggal_mulai" required>
+      <label>Lokasi Penugasan</label>
+      <input name="lokasi" placeholder="Contoh: Jakarta">
 
-            <label>Tanggal Selesai</label>
-            <input type="date" name="tanggal_selesai" required>
+      <label>Tanggal Mulai</label>
+      <input type="text" id="tanggal_mulai" name="tanggal_mulai" placeholder="dd/mm/yyyy">
 
-            <label>Deskripsi Penugasan</label>
-            <textarea name="deskripsi" rows="4" required placeholder="Contoh: Melakukan audit proses di divisi produksi..."></textarea>
+      <label>Tanggal Selesai</label>
+      <input type="text" id="tanggal_selesai" name="tanggal_selesai" placeholder="dd/mm/yyyy">
 
-            <br><br>
-            <button type="submit">🚀 Generate Surat</button>
-        </form>
-    </div>
+      <label>Deskripsi Penugasan</label>
+      <textarea name="deskripsi" rows="4" placeholder="Contoh: Menghadiri rapat koordinasi proyek..."></textarea>
+
+      <button type="submit" class="submit-btn">📄 Generate Surat</button>
+    </form>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script>
+    flatpickr("#tanggal_mulai", {
+      dateFormat: "d/m/Y",
+      allowInput: true
+    });
+    flatpickr("#tanggal_selesai", {
+      dateFormat: "d/m/Y",
+      allowInput: true
+    });
+
+    function tambahBaris() {
+      const container = document.getElementById('person-container');
+      const div = document.createElement('div');
+      div.className = 'person-row fade-in';
+      div.innerHTML = `
+        <input name="nama" placeholder="Nama">
+        <input name="jabatan" placeholder="Jabatan">
+        <input name="unit" placeholder="Unit/Divisi">
+        <button type="button" class="remove-btn" onclick="hapusBaris(this)">🗑</button>
+      `;
+      container.appendChild(div);
+    }
+
+    function hapusBaris(btn) {
+      btn.parentElement.remove();
+    }
+  </script>
 </body>
 </html>
